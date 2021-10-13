@@ -1,20 +1,19 @@
 import React from 'react';
-import { screen, fireEvent } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import render from '../../test-utils';
-import SearchGames from './searchGames';
+import NewGames from './newGames';
 import axios from 'axios';
 
-describe('searchGames', () => {
+describe('NewGames', () => {
     beforeEach(() => {
-        render(<SearchGames />);
+        jest.resetAllMocks();
     });
-
-    it('returns a list of searched game results for the public', async () => {
+    it('returns a list of new games for the public', async () => {
         const mockGameDescription = 'Super Mario is the best of the best of the best';
         const mockResponse = {
             data: {
                 data: {
-                    searchGames: [
+                    latestGames: [
                         {
                             deck: mockGameDescription,
                             id: '11111',
@@ -32,12 +31,9 @@ describe('searchGames', () => {
         // @ts-ignore
         jest.spyOn(axios, 'post').mockImplementationOnce(() => Promise.resolve(mockResponse));
 
-        const searchInput = (await screen.getByPlaceholderText('Title')) as HTMLInputElement;
-        fireEvent.change(searchInput, { target: { value: 'mario' } });
-        expect(searchInput.value).toBe('mario');
-
-        const submitButton = await screen.getByRole('button', { name: 'Search' });
-        fireEvent.click(submitButton);
+        await act(async () => {
+            await render(<NewGames />);
+        });
 
         await screen.findByText(mockGameDescription);
     });

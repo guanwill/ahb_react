@@ -17,8 +17,12 @@ const NewGames: React.FC = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getLatestGames(api);
+        getLatestGamesOnLoad(api);
     }, []);
+
+    const getLatestGamesOnLoad = async api => {
+        await getLatestGames(api);
+    };
 
     const useStyles = makeStyles(theme => ({
         root: {
