@@ -1,8 +1,9 @@
 import React from 'react';
-import { screen, fireEvent } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import render from '../../test-utils';
 import SearchGames from './searchGames';
 import axios from 'axios';
+import userEvent from '@testing-library/user-event';
 
 describe('searchGames', () => {
     beforeEach(() => {
@@ -33,11 +34,11 @@ describe('searchGames', () => {
         jest.spyOn(axios, 'post').mockImplementationOnce(() => Promise.resolve(mockResponse));
 
         const searchInput = (await screen.getByPlaceholderText('Title')) as HTMLInputElement;
-        fireEvent.change(searchInput, { target: { value: 'mario' } });
+        userEvent.type(searchInput, 'mario');
         expect(searchInput.value).toBe('mario');
 
         const submitButton = await screen.getByRole('button', { name: 'Search' });
-        fireEvent.click(submitButton);
+        userEvent.click(submitButton);
 
         await screen.findByText(mockGameDescription);
     });
