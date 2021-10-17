@@ -149,7 +149,7 @@ const EditGame: React.FC<Props> = ({ callUpdateGameApi, callDeleteGameApi, userG
                                 placeholder="Title"
                                 className="form-control"
                                 name="title"
-                                value={game ? game.title : ''}
+                                value={game && game.title ? game.title : ''}
                                 required={true}
                                 onChange={e => handleInputChange(e)}
                             />
@@ -159,7 +159,7 @@ const EditGame: React.FC<Props> = ({ callUpdateGameApi, callDeleteGameApi, userG
                             <SelectField
                                 name="genre"
                                 id="genre"
-                                value={game ? game.genre : ''}
+                                value={game && game.genre ? game.genre : ''}
                                 onChange={e => handleInputChange(e)}
                             >
                                 <option value="">Select Genre</option>
@@ -179,7 +179,8 @@ const EditGame: React.FC<Props> = ({ callUpdateGameApi, callDeleteGameApi, userG
                             <SelectField
                                 name="platform"
                                 id="platform"
-                                value={game ? game.platform : ''}
+                                data-testid="platform"
+                                value={game && game.platform ? game.platform : ''}
                                 onChange={e => handleInputChange(e)}
                                 required={true}
                             >
@@ -207,7 +208,8 @@ const EditGame: React.FC<Props> = ({ callUpdateGameApi, callDeleteGameApi, userG
                             <SelectField
                                 name="status"
                                 id="status"
-                                value={game ? game.status : ''}
+                                data-testid="status"
+                                value={game && game.status ? game.status : ''}
                                 onChange={e => handleInputChange(e)}
                                 required={true}
                             >
@@ -226,7 +228,7 @@ const EditGame: React.FC<Props> = ({ callUpdateGameApi, callDeleteGameApi, userG
                                 placeholder="Rating"
                                 className="form-control"
                                 name="rating"
-                                value={game ? game.rating : Number('')}
+                                value={game && game.rating ? game.rating : Number('')}
                                 onChange={e => handleInputChange(e)}
                             />
                         </div>
@@ -236,7 +238,7 @@ const EditGame: React.FC<Props> = ({ callUpdateGameApi, callDeleteGameApi, userG
                                 placeholder="Review"
                                 className="form-control"
                                 name="review"
-                                value={game ? game.review : ''}
+                                value={game && game.review ? game.review : ''}
                                 onChange={e => handleInputChange(e)}
                             />
                         </div>
@@ -245,7 +247,7 @@ const EditGame: React.FC<Props> = ({ callUpdateGameApi, callDeleteGameApi, userG
                             placeholder="Comments"
                             className="form-control"
                             name="comments"
-                            value={game ? game.comments : ''}
+                            value={game && game.comments ? game.comments : ''}
                             onChange={e => handleInputChange(e)}
                         />
 
