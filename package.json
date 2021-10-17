@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/helper-call-delegate": "^7.12.13",
     "@babel/helper-define-map": "^7.15.4",
     "@babel/helper-regex": "^7.10.5",
     "@testing-library/jest-dom": "^5.14.1",
