@@ -153,6 +153,14 @@
     "@babel/helper-explode-assignable-expression" "^7.15.4"
     "@babel/types" "^7.15.4"
 
+"@babel/helper-builder-react-jsx@^7.15.4":
+  version "7.15.4"
+  resolved "https://registry.yarnpkg.com/@babel/helper-builder-react-jsx/-/helper-builder-react-jsx-7.15.4.tgz#44e3ed960f2cd00c4d6aab863fc3f3edafad0a0b"
+  integrity sha512-bT7jt6ozDCBuUUtmqxZJ6nImqJ2zdXjGehvyBSeeGO+eE4vBwsxTFM7aDp6UgUkxaQNaaYXcEJcDIdZOy2u8nA==
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.15.4"
+    "@babel/types" "^7.15.4"
+
 "@babel/helper-call-delegate@^7.12.13":
   version "7.12.13"
   resolved "https://registry.yarnpkg.com/@babel/helper-call-delegate/-/helper-call-delegate-7.12.13.tgz#119ef367451f90bed006c685816ba60fc33fee78"
