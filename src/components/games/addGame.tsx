@@ -48,7 +48,6 @@ const AddGame: React.FC<Props> = ({ callAddGameApi, userGames, gameToAdd }) => {
 
         try {
             setIsLoading(true);
-
             response = await callAddGameApi(user_id, gameArgs);
         } catch (e) {
             throw e;
@@ -79,7 +78,7 @@ const AddGame: React.FC<Props> = ({ callAddGameApi, userGames, gameToAdd }) => {
 
     useEffect(() => {
         if (isTokenExpired()) {
-            console.log('IS EXPIRED? ', isTokenExpired());
+            console.log('token is expired');
             history.push('/login');
         }
 
@@ -142,6 +141,7 @@ const AddGame: React.FC<Props> = ({ callAddGameApi, userGames, gameToAdd }) => {
                             <SelectField
                                 name="platform"
                                 id="platform"
+                                data-testid="platform"
                                 onChange={e => handleInputChange(e)}
                                 required={true}
                             >
@@ -166,7 +166,13 @@ const AddGame: React.FC<Props> = ({ callAddGameApi, userGames, gameToAdd }) => {
                         </div>
 
                         <div>
-                            <SelectField name="status" id="status" onChange={e => handleInputChange(e)} required={true}>
+                            <SelectField
+                                name="status"
+                                id="status"
+                                data-testid="status"
+                                onChange={e => handleInputChange(e)}
+                                required={true}
+                            >
                                 <option value="">Select Status</option>
                                 <option value="Playing">Playing</option>
                                 <option value="Finished">Finished</option>

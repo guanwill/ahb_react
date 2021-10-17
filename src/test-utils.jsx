@@ -1,28 +1,24 @@
 import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { rootReducer, initialState } from './store';
-
+import { rootReducer } from './store';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
+import api from '../src/api';
+import thunk from 'redux-thunk';
 
 let history = createMemoryHistory();
 
 export default function render(
     ui,
-    { initialState, store = createStore(rootReducer, initialState), ...renderOptions } = {}
+    {
+        initialState,
+        store = createStore(rootReducer, initialState, applyMiddleware(thunk.withExtraArgument(api))),
+        ...renderOptions
+    } = {}
 ) {
-    // return {
-    //     ...render(<Provider store={store}><Router history={history}>{ui}</Router></Provider>),
-    //     store,
-    // }
-
-    console.log('ui....', ui);
-
     function Wrapper({ children }) {
-        console.log('children....', children);
-
         return (
             <>
                 <Provider store={store}>
