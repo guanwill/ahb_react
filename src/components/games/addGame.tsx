@@ -157,7 +157,7 @@ const AddGame: React.FC<Props> = ({ callAddGameApi, userGames, gameToAdd }) => {
                         <div>
                             <InputField
                                 type="date"
-                                value={game ? game.release_date : ''}
+                                value={game && game.release_date ? game.release_date : ''}
                                 placeholder="Release date"
                                 className="form-control"
                                 name="release_date"
