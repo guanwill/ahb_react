@@ -4,11 +4,11 @@ import render from '../../test-utils';
 import AddGame from './addGame';
 import userEvent from '@testing-library/user-event';
 import axios from 'axios';
-import { createBrowserHistory } from 'history';
+import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
-// jest.mock('../../helpers/isTokenExpired', () => () => false);
+jest.mock('../../helpers/isTokenExpired', () => () => false);
 
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
@@ -23,7 +23,7 @@ describe('AddGame', () => {
     let history;
 
     beforeEach(() => {
-        history = createBrowserHistory();
+        history = createMemoryHistory();
 
         render(
             <Router history={history}>
