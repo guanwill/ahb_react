@@ -83,19 +83,14 @@ describe('EditGame', () => {
         const updateButton = await screen.getByRole('button', { name: 'Update Game' });
         userEvent.click(updateButton);
 
-        const mockApiGamePayload = {
-            comments: undefined,
-            genre: '',
-            platform: updatedPlatform,
-            rating: 0,
-            release_date: '2021-10-17',
-            review: undefined,
-            status: status,
-            title: updatedTitle
-        };
-
         await waitFor(() => {
-            expect(axiosSpy.mock.calls[0][1]).toEqual(mockApiGamePayload);
+            expect(axiosSpy.mock.calls[0][1]).toEqual(
+                expect.objectContaining({
+                    platform: updatedPlatform,
+                    status: status,
+                    title: updatedTitle
+                })
+            );
             expect(history.location.pathname).toEqual(`/user/${mockUserIdParam}/games`);
         });
     });
