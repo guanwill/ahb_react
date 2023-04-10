@@ -122,7 +122,7 @@ const AddGame: React.FC<Props> = ({ callAddGameApi, userGames, gameToAdd }) => {
                             />
                         </div>
 
-                        <div>
+                        {/* <div>
                             <SelectField name="genre" id="genre" onChange={e => handleInputChange(e)}>
                                 <option value="">Select Genre</option>
                                 <option value="Adventure">Adventure</option>
@@ -135,7 +135,7 @@ const AddGame: React.FC<Props> = ({ callAddGameApi, userGames, gameToAdd }) => {
                                 <option value="Simulation">Simulation</option>
                                 <option value="Other">Other</option>
                             </SelectField>
-                        </div>
+                        </div> */}
 
                         <div>
                             <SelectField
@@ -154,7 +154,7 @@ const AddGame: React.FC<Props> = ({ callAddGameApi, userGames, gameToAdd }) => {
                             </SelectField>
                         </div>
 
-                        <div>
+                        {/* <div>
                             <InputField
                                 type="date"
                                 value={game && game.release_date ? game.release_date : ''}
@@ -163,7 +163,7 @@ const AddGame: React.FC<Props> = ({ callAddGameApi, userGames, gameToAdd }) => {
                                 name="release_date"
                                 onChange={e => handleInputChange(e)}
                             />
-                        </div>
+                        </div> */}
 
                         <div>
                             <SelectField
@@ -182,7 +182,7 @@ const AddGame: React.FC<Props> = ({ callAddGameApi, userGames, gameToAdd }) => {
                             </SelectField>
                         </div>
 
-                        <div>
+                        {/* <div>
                             <InputField
                                 type="number"
                                 placeholder="Rating"
@@ -199,14 +199,14 @@ const AddGame: React.FC<Props> = ({ callAddGameApi, userGames, gameToAdd }) => {
                                 name="review"
                                 onChange={e => handleInputChange(e)}
                             />
-                        </div>
+                        </div> */}
 
-                        <TextAreaField
+                        {/* <TextAreaField
                             placeholder="Comments"
                             className="form-control"
                             name="comments"
                             onChange={e => handleInputChange(e)}
-                        />
+                        /> */}
 
                         {isLoading && <p>loading...</p>}
 

@@ -4,7 +4,7 @@ import moment from 'moment';
 import { MuiTableWrapper, GameTableWrapper } from '../../styles/styles';
 import { IGame } from '../../model/game/game';
 import MUIDataTable from 'mui-datatables';
-import VisibilityIcon from '@material-ui/icons/Visibility';
+import EditIcon from '@material-ui/icons/Edit';
 
 interface Props {
     title: string;
@@ -76,7 +76,7 @@ const GameTable: React.FC<Props> = ({ title, games, userId }) => {
                                     games.find(game => game.title === tableMeta.rowData[1])!._id
                                 }/edit`}
                             >
-                                <VisibilityIcon />
+                                <EditIcon style={{ fontSize: '1.3em' }} />
                             </Link>
                         </>
                     );
