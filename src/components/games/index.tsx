@@ -9,7 +9,7 @@ import GameTable from './gameTable';
 // MUI
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
+import LinkIcon from '@material-ui/icons/Link';
 import { ButtonWrapper, ContainerInner, SubHeadingWrapper, AlignRight, ShareLink } from '../../styles/styles';
 import { Link as MaterialUiLink } from '@material-ui/core';
 import { useParams, useHistory } from 'react-router-dom';
@@ -77,7 +77,7 @@ const Games: React.FC<Props> = ({ userGames, callFetchGamesApi, executeClearSear
                                     await copyShareLink();
                                 }}
                             >
-                                <FileCopyIcon style={{ fontSize: '1.2em' }} />
+                                <LinkIcon />
                             </MaterialUiLink>
                         </AlignRight>
                     </ShareLink>
